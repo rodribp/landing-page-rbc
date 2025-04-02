@@ -1,0 +1,31 @@
+@import "tailwindcss";
+
+html {
+    scroll-behavior: smooth;
+}  
+
+@theme {
+    --color-primary: #003151;
+}
+
+@layer utilities {
+    .text-titles {
+        @apply text-[32pt] font-semibold;
+    }
+
+    .text-titles-2 {
+        @apply text-[18pt] md:text-[24pt];
+    }
+
+    .text-subtitles {
+        @apply text-[14pt];
+    }
+
+    .text-paragraphs {
+        @apply text-[12pt];
+    }
+    
+    .mx-layout {
+      @apply mx-[20px] md:mx-[50px] lg:mx-[150px];
+    }
+}

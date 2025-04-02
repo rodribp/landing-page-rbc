@@ -1,0 +1,26 @@
+---
+import '@/styles/animations.css';
+---
+
+<footer class="bg-primary text-white mt-10">
+    <div class="mx-[20px] md:mx-[50px] lg:mx-[150px] flex flex-col">
+        <div class="flex flex-col space-y-4 md:flex-row items-center justify-between py-4">
+            <img src="/logo-horizontal-white.png" alt="Logo RBC" class="hidden md:block h-[100px]" />
+            <img src="/logo-vertical-white.png" alt="Logo RBC" class="md:hidden h-[100px]" />
+            <div class="flex flex-col space-y-4 text-center md:text-left">
+                <p class="font-semibold text-xs">Contáctanos</p>
+                <a href="mailto:rafaelbonillacontreras@gmail.com" target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/mail.svg" alt="Mail icon"> rafaelbonillacontreras@gmail.com </a>
+                <a href="tel:50370186602" target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/phone.svg" alt="Phone icon"> +503 7018-6602 </a>
+            </div>
+        </div>
+        <div id="copyright-footer" class="border-t border-white py-4 text-xs font-light">
+            
+        </div>
+    </div>
+</footer>
+
+<script>
+    const copyright = document.getElementById("copyright-footer");
+
+    copyright.innerHTML = `© ${new Date().getFullYear()} RBC PROYECTOS`;
+</script>

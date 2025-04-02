@@ -1,11 +1,231 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import Layout from "@/layouts/Layout.astro"
+import "@/styles/animations.css"
+import Button from "@/components/atoms/Button.astro"
+const url = Astro.url;
 ---
 
 <Layout>
-	<Welcome />
+    <section class="relative bg-cover bg-left md:bg-center bg-no-repeat bg-fixed h-screen" style="background-image: url('/img/inicio.webp')">
+        <div class="block absolute top-1/2 left-0 -translate-y-[70%] mx-layout w-3/4 md:w-1/2 lg:w-1/3">
+            <h1 class="text-titles text-white mb-4 animate-fade-up delay-100">Hacemos realidad tus proyectos</h1>
+            <h3 class="text-subtitles text-white mb-4 animate-fade-up delay-400">Expertos en servicios profesionales en el área de la construcción.</h3>
+            <Button href="#contacto" class="fade-in-on-load">¡Cotiza ya!</Button>
+        </div>
+        <!-- Boton sobre nosotros -->
+        <a href="#sobre-nosotros" class="absolute flex flex-col items-center justify-center space-y-2 w-full bottom-5 text-white delay-800 animate-bounce-slow pause-on-hover">
+            <p class="drop-shadow-[0_0_6px_rgba(255,255,255,1)]">Sobre Nosotros</p>
+            <img src="/icons/arrowdown.svg" alt="arrow down">
+        </a>
+    </section>
+      
+    <section class="relative mx-layout text-center my-10 flex flex-col items-center justify-center">
+        <p class="text-paragraphs text-primary">Nuestros servicios han estado presentes en diferentes proyectos y empresas</p>
+        <div class="flex flex-row flex-wrap items-center justify-center gap-4 mt-5">
+            <img src="/trusted_companies/1.png" alt="Compañia 1" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/2.png" alt="Compañia 2" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/3.png" alt="Compañia 3" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/4.png" alt="Compañia 4" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/5.png" alt="Compañia 5" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/6.png" alt="Compañia 6" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/7.png" alt="Compañia 7" class="w-[20%] md:w-[16%] object-contain h-auto">
+            <img src="/trusted_companies/8.png" alt="Compañia 8" class="w-[20%] md:w-[16%] object-contain h-auto">
+        </div>
+    </section>
+
+    <section id="sobre-nosotros" class="relative mx-layout my-10 flex flex-col lg:flex-row lg:gap-15 space-y-4">
+        <img src="/img/collage.webp" alt="Collage img" class="h-auto w-full lg:w-[45%]">
+        <div class="flex flex-col space-y-6 justify-center">
+            <h2 class="text-titles-2 text-primary"><span class="font-semibold">Tu aliado estratégico</span> para ejecutar tus proyectos</h2>
+            <p class="text-paragraphs text-primary">Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en soluciones integrales de ingeniería.</p>
+            <div class="flex flex-col space-y-4 justify-center">
+                <p class="flex items-center gap-2 text-paragraphs text-primary font-medium"><i><img src="/icons/check.svg" alt="check icon" class="w-[80%]"></i>Compromiso</p>
+                <p class="flex items-center gap-2 text-paragraphs text-primary font-medium"><i><img src="/icons/check.svg" alt="check icon" class="w-[80%]"></i>Profesionalismo</p>
+                <p class="flex items-center gap-2 text-paragraphs text-primary font-medium"><i><img src="/icons/check.svg" alt="check icon" class="w-[80%]"></i>Enfoque en resultados</p>
+            </div>
+            <div>
+                <Button href="#servicios">Oferta de servicios</Button>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="text-white my-10">
+        <!-- Servicio 1 -->
+        <div class="relative servicio h-screen bg-no-repeat bg-fixed w-full bg-cover bg-center" style="background-image: url('/services/1.webp')">
+            <div class="mx-layout absolute flex flex-col justify-center h-full w-[90%] md:w-[60%] lg:w-[45%] space-y-6 md:space-y-12">
+                <h2 class="text-titles">Servicios de Metal Mecánica</h2>
+                <div class="flex items-center gap-2 mt-48 md:mt-0">
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/structure.svg" alt="structure icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Fabricación de estructuras metálicas livianas y pesadas.</p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/welding.svg" alt="welding icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Soldadura especializada (MIG, TIG, SMAW).</p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/cut.svg" alt="cut icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Corte y doblado de láminas y perfiles.</p>
+                    </div>
+                </div>
+                <p class="text-sm">Soluciones de metal mecánica adaptadas a las necesidades del sector construcción. Fabricamos e instalamos estructuras metálicas de alta calidad, garantizando seguridad, durabilidad y cumplimiento de normas técnicas.</p>
+            </div>
+        </div>
+
+        <!-- Servicio 2 -->
+        <div class="relative servicio h-screen bg-no-repeat bg-fixed w-full bg-cover bg-center" style="background-image: url('/services/2.webp')">
+            <div class="absolute"></div>
+            <div class="mx-layout absolute flex flex-col justify-center h-full w-[90%] md:w-[60%] lg:w-[45%] space-y-6 md:space-y-12">
+                <h2 class="text-titles">Estructuras, tuberías y maquinado</h2>
+                <div class="flex items-center gap-2 mt-48 md:mt-0">
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/structure.svg" alt="structure icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Fabricación de estructuras metálicas livianas y pesadas.</p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/pipeline.svg" alt="pipeline icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Instalación de tuberías industriales</p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/gear.svg" alt="gear icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Maquinado de componentes metálicos</p>
+                    </div>
+                </div>
+                <p class="text-sm">Servicios integrales en la fabricación e instalación de estructuras metálicas, tuberías industriales y piezas maquinadas, adaptadas a proyectos de alto rendimiento.</p>
+            </div>
+        </div>
+
+        <!-- Servicio 3 -->
+        <div class="relative servicio h-screen bg-no-repeat bg-fixed w-full bg-cover bg-center" style="background-image: url('/services/3.webp')">
+            <div class="absolute"></div>
+            <div class="mx-layout absolute flex flex-col justify-center h-full w-[90%] md:w-[60%] lg:w-[45%] space-y-6 md:space-y-12">
+                <h2 class="text-titles">Electricidad residencial e industrial</h2>
+                <div class="flex items-center gap-2 mt-48 md:mt-0">
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/bolt.svg" alt="bolt icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Instalaciones eléctricas residenciales e industriales </p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/braker.svg" alt="braker icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Instalación de sistemas de protección y control eléctrico</p>
+                    </div>
+                    <div class="flex flex-col space-y-4 bg-black/50 p-0 py-2 md:p-2 backdrop-blur-sm hover:bg-black/100 duration-200 w-[33%] h-full text-center items-center">
+                        <img src="/icons/tabler.svg" alt="tabler icon" class="h-[30px] md:h-[40px] w-auto object-contain">
+                        <p class="text-xs md:text-sm">Tableros de distribución y automatización</p>
+                    </div>
+                </div>
+                <p class="text-sm">Diseñamos, instalamos y damos mantenimiento a sistemas eléctricos para hogares, comercios e industrias, cumpliendo con normativas técnicas y altos estándares de calidad.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="my-10 flex flex-col md:flex-row md:items-center md:gap-10 space-y-4 mx-layout">
+        <div class="w-full md:w-1/2">
+            <h2 class="text-titles-2 text-primary font-semibold">Solicita una cotización</h2>
+            <div class="flex items-center gap-6 h-full mt-10">
+                <img src="/icons/process_contact.svg" alt="Process bar">
+                <div class="flex flex-col space-y-14 h-full">
+                    <div class="flex gap-4 items-center">
+                        <img src="/img/form.webp" alt="form image" class="h-[82px] w-auto">
+                        <p class="text-sm text-primary">Rellena el formulario y cuentanos sobre tu proyecto</p>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <img src="/img/support.webp" alt="support image" class="h-[82px] w-auto">
+                        <p class="text-sm text-primary">Nos pondremos en contacto contigo por seguimiento</p>
+                    </div>
+                    <div class="flex gap-4 items-center">
+                        <img src="/img/quote.webp" alt="quote image" class="h-[82px] w-auto">
+                        <p class="text-sm text-primary">Recibe una cotización</p>
+                    </div>
+                </div>
+            </div>
+            <p class="text-sm text-primary mt-10">Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te contactamos para afinar los detalles y recibirás una cotización personalizada en el menor tiempo posible.</p>
+        </div>
+        <div class="w-full md:w-1/2 mt-5 md:mt-0">
+            <form id="cotizacion" action="https://formsubmit.co/rafaelbonillacontreras@gmail.com" method="POST" class="flex flex-wrap gap-4">
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="nombre" class="text-sm">Nombres<span class="text-red-500">*</span></label>
+                    <input type="text" maxlength="30" id="nombre" name="nombre" class="w-full bg-black/20 h-8" required>
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="apellido" class="text-sm">Apellidos<span class="text-red-500">*</span></label>
+                    <input type="text" maxlength="30" id="apellido" name="apellido" class="w-full bg-black/20 h-8" required>
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="correo" class="text-sm">Correo electrónico <span class="text-red-500">*</span></label>
+                    <input type="email" maxlength="50" id="correo" name="correo" class="w-full bg-black/20 h-8" required>
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="telefono" class="text-sm">Teléfono</label>
+                    <input type="text" maxlength="16" id="telefono" name="telefono" class="w-full bg-black/20 h-8">
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="empresa" class="text-sm">Empresa <span class="text-red-500">*</span></label>
+                    <input type="text" maxlength="25" id="empresa" name="empresa" class="w-full bg-black/20 h-8" required>
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="cargo" class="text-sm">Cargo</label>
+                    <input type="text" maxlength="30" id="cargo" name="cargo" class="w-full bg-black/20 h-8">
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="industria" class="text-sm">Industria <span class="text-red-500">*</span></label>
+                    <input type="text" maxlength="50" id="industria" name="industria" class="w-full bg-black/20 h-8" required>
+                </div>
+                <div class="block w-[47%] md:w-[45%]">
+                    <label for="servicios_interes" class="text-sm">
+                      Servicio de interés <span class="text-red-500">*</span>
+                    </label>
+                  
+                    <select
+                      id="servicios_interes"
+                      name="servicios_interes"
+                      class="w-full bg-black/20 h-8 text-sm overflow-hidden"
+                      required
+                    >
+                      <option value="metal_mecanica">Metal mecánica</option>
+                      <option value="estructuras_tuberias_maquinado">Estructuras, tuberías y maquinado</option>
+                      <option value="electricidad">Electricidad residencial e industrial</option>
+                    </select>
+                  </div>
+                <div class="block w-[98%] md:w-[93%]">
+                    <label for="descripcion" class="text-sm">Descripción <span class="text-red-500">*</span></label>
+                    <textarea id="descripcion" maxlength="500" name="descripcion" class="w-full bg-black/20 h-24" required></textarea>
+                    <p id="contador" class="text-sm text-right">0 / 500</p>
+                </div>
+                <input type="text" name="_honey" style="display:none">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Solicitud de cotización desde la web de RBC">
+                <input type="hidden" name="_next" value=`${url.href}#gracias`>
+                <button class="text-white font-semibold p-2 px-6 hover:bg-black/100 duration-200 bg-black/60 text-lg inline-block cursor-pointer" type="submit">Enviar</button>
+            </form>
+            <h2 id="gracias" class="hidden text-titles-2 text-primary font-semibold">
+                Gracias por tu interés en nuestros servicios. Nos pondremos en contacto contigo lo más pronto posible.
+            </h2>
+        </div>
+    </section>
 </Layout>
+
+<script>
+    const textarea = document.getElementById("descripcion");
+    const contador = document.getElementById("contador");
+
+    textarea?.addEventListener("input", () => {
+        contador.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
+    });
+
+    const gracias = document.getElementById("gracias");
+  const form = document.getElementById("cotizacion");
+
+    if (window.location.hash === "#gracias") {
+        form?.classList.add("hidden");
+        gracias?.classList.remove("hidden");
+
+        setTimeout(() => {
+        gracias?.classList.add("hidden");
+        form?.classList.remove("hidden");
+
+        // Limpiar el hash para que no se quede pegado
+        history.replaceState(null, "", window.location.pathname + window.location.search);
+        }, 5000);
+    }
+</script>
