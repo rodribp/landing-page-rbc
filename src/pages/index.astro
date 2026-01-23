@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro"
 import "@/styles/animations.css"
 import Button from "@/components/atoms/Button.astro"
+import { CONTACT_EMAIL } from "@/utils/global_variables";
 const url = Astro.url;
 ---
 
@@ -142,7 +143,7 @@ const url = Astro.url;
             <p class="text-sm text-primary mt-10">Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te contactamos para afinar los detalles y recibirás una cotización personalizada en el menor tiempo posible.</p>
         </div>
         <div class="w-full md:w-1/2 mt-5 md:mt-0">
-            <form id="cotizacion" action="https://formsubmit.co/rafaelbonillacontreras@gmail.com" method="POST" class="flex flex-wrap gap-4">
+            <form id="cotizacion" action=`https://formsubmit.co/${CONTACT_EMAIL}` method="POST" class="flex flex-wrap gap-4">
                 <div class="block w-[47%] md:w-[45%]">
                     <label for="nombre" class="text-sm">Nombres<span class="text-red-500">*</span></label>
                     <input type="text" maxlength="30" id="nombre" name="nombre" class="w-full bg-black/20 h-8" required>

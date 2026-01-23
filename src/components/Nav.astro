@@ -1,5 +1,6 @@
 ---
 import "@/styles/animations.css";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 ---
 
 <nav class="bg-primary top-0 z-80 w-full h-auto text-white text-xs">
@@ -25,8 +26,8 @@ import "@/styles/animations.css";
         <button id="close-menu" class="mb-10"><img src="/icons/x.svg" alt="Botón salir"></button>
         <div class="flex flex-col space-y-4 mb-5">
             <div class="flex items-center justify-center gap-2 flex-wrap">
-                <a href="mailto:rafaelbonillacontreras@gmail.com" target="_blank" rel="noopener noreferrer" class="gap-1 text-xs flex items-center"><img src="/icons/mail.svg" alt="Mail icon"> rafaelbonillacontreras@gmail.com </a>
-                <a href="tel:50370186602" target="_blank" rel="noopener noreferrer" class="gap-1 text-xs flex items-center"><img src="/icons/phone.svg" alt="Phone icon"> +503 7018 6602 </a>
+                <a href=`mailto:${CONTACT_EMAIL}` target="_blank" rel="noopener noreferrer" class="gap-1 text-xs flex items-center"><img src="/icons/mail.svg" alt="Mail icon"> {CONTACT_EMAIL} </a>
+                <a href=`tel:${CONTACT_PHONE.value}` target="_blank" rel="noopener noreferrer" class="gap-1 text-xs flex items-center"><img src="/icons/phone.svg" alt="Phone icon"> {CONTACT_PHONE.string} </a>
             </div>
             <p id="copyright-mobile-menu" class="text-white font-light"></p>
         </div>

@@ -1,5 +1,6 @@
 ---
 import '@/styles/animations.css';
+import { CONTACT_EMAIL, CONTACT_PHONE } from '@/utils/global_variables';
 ---
 
 <footer class="bg-primary text-white mt-10">
@@ -9,8 +10,8 @@ import '@/styles/animations.css';
             <img src="/logo-vertical-white.png" alt="Logo RBC" class="md:hidden h-[100px]" />
             <div class="flex flex-col space-y-4 text-center md:text-left">
                 <p class="font-semibold text-xs">Contáctanos</p>
-                <a href="mailto:rafaelbonillacontreras@gmail.com" target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/mail.svg" alt="Mail icon"> rafaelbonillacontreras@gmail.com </a>
-                <a href="tel:50370186602" target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/phone.svg" alt="Phone icon"> +503 7018-6602 </a>
+                <a href=`mailto:${CONTACT_EMAIL}` target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/mail.svg" alt="Mail icon"> {CONTACT_EMAIL} </a>
+                <a href=`tel:${CONTACT_PHONE.value}` target="_blank" class="fancy-underline flex flex-col md:flex-row items-center gap-2 text-xs"> <img src="/icons/phone.svg" alt="Phone icon"> {CONTACT_PHONE.string} </a>
             </div>
         </div>
         <div id="copyright-footer" class="border-t border-white py-4 text-xs font-light">
