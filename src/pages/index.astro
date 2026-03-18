@@ -10,14 +10,17 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 ---
 
 <Layout>
-  <section
-    class="relative h-screen overflow-hidden"
-  >
-    <video 
+  <section class="relative h-screen overflow-hidden">
+    <video
       id="index-video"
       class="absolute inset-0 h-full w-full object-cover object-[15%]"
-      src="/video/inicio1.mp4" autoplay muted loop playsinline preload="auto"></video>
-    
+      src="/video/inicio1.mp4"
+      autoplay
+      muted
+      loop
+      playsinline
+      preload="auto"></video>
+
     <div class="absolute inset-0 bg-black/60"></div>
 
     <div
@@ -34,7 +37,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     <!-- Boton sobre nosotros -->
     <a
       href="#sobre-nosotros"
-      class="animate-bounce-slow pause-on-hover absolute bottom-5 flex w-full flex-col items-center justify-center space-y-2 text-white delay-800"
+      class="animate-bounce-slow pause-on-hover absolute bottom-12 flex w-full flex-col items-center justify-center space-y-2 text-white delay-800"
     >
       <p class="drop-shadow-[0_0_6px_rgba(255,255,255,1)]">Sobre Nosotros</p>
       <img src="/icons/arrowdown.svg" alt="arrow down" />
@@ -47,13 +50,15 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     <p class="text-paragraphs text-primary">
       Nuestros servicios han estado presentes en diferentes proyectos y empresas
     </p>
-    <div class="mt-5 flex flex-row flex-wrap items-center justify-center gap-4">
+    <div
+      class="mt-5 flex flex-row flex-wrap items-center justify-between gap-4"
+    >
       {
         companies.map((n) => (
           <img
             src={`/trusted_companies/${n}.png`}
             alt={`Compañia ${n}`}
-            class="h-auto w-[20%] object-contain md:w-[16%]"
+            class="h-auto w-[20%] object-contain md:w-[10%]"
           />
         ))
       }
@@ -104,7 +109,11 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
-  <section id="servicios" class="relative text-white bg-black" style={`height: calc(100vh * ${SERVICES.length})`}>
+  <section
+    id="servicios"
+    class="relative bg-black text-white"
+    style={`height: calc(100vh * ${SERVICES.length})`}
+  >
     <div class="sticky top-0 h-screen w-full overflow-hidden">
       {
         SERVICES.map((service) => (
@@ -116,14 +125,18 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
           />
         ))
       }
-      <div class="hidden absolute right-6 top-1/2 md:flex -translate-y-1/2 flex-col gap-3 z-10">
-        {SERVICES.map((_, i) => (
-          <button
-            class="service-dot h-2.5 w-2.5 rounded-full border border-white/60 bg-transparent transition-all duration-300 cursor-pointer"
-            data-dot={i}
-            aria-label={`Go to service ${i + 1}`}
-          />
-        ))}
+      <div
+        class="absolute top-1/2 right-6 z-10 hidden -translate-y-1/2 flex-col gap-3 md:flex"
+      >
+        {
+          SERVICES.map((_, i) => (
+            <button
+              class="service-dot h-2.5 w-2.5 cursor-pointer rounded-full border border-white/60 bg-transparent transition-all duration-300"
+              data-dot={i}
+              aria-label={`Go to service ${i + 1}`}
+            />
+          ))
+        }
       </div>
     </div>
   </section>
@@ -176,9 +189,9 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 </Layout>
 
 <script>
-  const section = document.getElementById('servicios')!;
-  const panels = document.querySelectorAll<HTMLElement>('.servicio-panel');
-  const dots = document.querySelectorAll<HTMLElement>('.service-dot');
+  const section = document.getElementById("servicios")!;
+  const panels = document.querySelectorAll<HTMLElement>(".servicio-panel");
+  const dots = document.querySelectorAll<HTMLElement>(".service-dot");
   const total = panels.length;
   let currentIndex = 0;
 
@@ -186,42 +199,45 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     if (targetIndex === currentIndex) {
       return;
     }
-    panels[currentIndex].style.opacity = '0';
-    panels[currentIndex].style.pointerEvents = 'none';
-    dots[currentIndex]?.classList.remove('bg-white', 'scale-125');
-    panels[targetIndex].style.opacity = '1';
-    panels[targetIndex].style.pointerEvents = 'auto';
-    dots[targetIndex]?.classList.add('bg-white', 'scale-125');
+    panels[currentIndex].style.opacity = "0";
+    panels[currentIndex].style.pointerEvents = "none";
+    dots[currentIndex]?.classList.remove("bg-white", "scale-125");
+    panels[targetIndex].style.opacity = "1";
+    panels[targetIndex].style.pointerEvents = "auto";
+    dots[targetIndex]?.classList.add("bg-white", "scale-125");
 
     currentIndex = targetIndex;
   }
 
   // Initialize first dot
-  dots[0]?.classList.add('bg-white', 'scale-125');
+  dots[0]?.classList.add("bg-white", "scale-125");
 
   // Dot click navigation
   dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => {
-
+    dot.addEventListener("click", () => {
       const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const targetScroll = sectionTop + (window.innerHeight * i);
-      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+      const targetScroll = sectionTop + window.innerHeight * i;
+      window.scrollTo({ top: targetScroll, behavior: "smooth" });
     });
   });
 
   // Scroll-driven panel switching
-  window.addEventListener('scroll', () => {
-    const rect = section.getBoundingClientRect();
-    const sectionHeight = section.offsetHeight - window.innerHeight;
-    const scrolled = -rect.top;
+  window.addEventListener(
+    "scroll",
+    () => {
+      const rect = section.getBoundingClientRect();
+      const sectionHeight = section.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
 
-    if (scrolled < 0 || scrolled > sectionHeight) {
-      return;
-    }
+      if (scrolled < 0 || scrolled > sectionHeight) {
+        return;
+      }
 
-    const progress = scrolled / sectionHeight; // 0 → 1
-    const targetIndex = Math.min(Math.floor(progress * total), total - 1);
+      const progress = scrolled / sectionHeight; // 0 → 1
+      const targetIndex = Math.min(Math.floor(progress * total), total - 1);
 
-    goTo(targetIndex);
-  }, { passive: true });
+      goTo(targetIndex);
+    },
+    { passive: true },
+  );
 </script>

@@ -4,7 +4,7 @@ const { title, description, details, index } = Astro.props;
 
 <div
   class="servicio-panel absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-700"
-  style={`background-image: url('/services/${index + 1}.webp'); opacity: ${index === 0 ? 1 : 0}; pointer-events: ${index === 0 ? 'auto' : 'none'};`}
+  style={`background-image: url('/services/${index + 1}.webp'); opacity: ${index === 0 ? 1 : 0}; pointer-events: ${index === 0 ? "auto" : "none"};`}
   data-index={index}
 >
   <div class="absolute inset-0 bg-black/20"></div>
