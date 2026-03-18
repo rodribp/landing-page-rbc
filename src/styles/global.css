@@ -1,31 +1,36 @@
 @import "tailwindcss";
+@import url("/montserrat.ttf");
 
 html {
-    scroll-behavior: smooth;
-}  
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
 
 @theme {
-    --color-primary: #003151;
+  --color-primary: #003151;
 }
 
 @layer utilities {
-    .text-titles {
-        @apply text-[32pt] font-semibold;
-    }
+  .text-titles {
+    @apply text-[32pt] font-semibold;
+  }
 
-    .text-titles-2 {
-        @apply text-[18pt] md:text-[24pt];
-    }
+  .text-titles-2 {
+    @apply text-[18pt] md:text-[24pt];
+  }
 
-    .text-subtitles {
-        @apply text-[14pt];
-    }
+  .text-subtitles {
+    @apply text-[14pt];
+  }
 
-    .text-paragraphs {
-        @apply text-[12pt];
-    }
-    
-    .mx-layout {
-      @apply mx-[20px] md:mx-[50px] lg:mx-[150px];
-    }
+  .text-paragraphs {
+    @apply text-[12pt];
+  }
+
+  .mx-layout {
+    @apply mx-[20px] md:mx-[50px] lg:mx-[150px];
+  }
 }

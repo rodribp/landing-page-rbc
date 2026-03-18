@@ -1,21 +1,21 @@
 ---
 import "@/styles/global.css";
-import Nav  from "@/components/Nav.astro";
+import Nav from "@/components/Nav.astro";
 import Footer from "@/components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>RBC</title>
-	</head>
-	<body class="font-[Montserrat]">
-		<Nav></Nav>
-		<slot />
-		<Footer></Footer>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>RBC</title>
+  </head>
+  <body>
+    <Nav />
+    <slot />
+    <Footer />
+  </body>
 </html>
