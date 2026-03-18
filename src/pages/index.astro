@@ -19,16 +19,14 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
       muted
       loop
       playsinline
-      preload="auto"></video>
+      preload="auto"
+    >
+    </video>
 
     <div class="absolute inset-0 bg-black/60"></div>
 
-    <div
-      class="mx-layout absolute top-1/2 left-0 block w-3/4 -translate-y-[70%] md:w-1/2 lg:w-1/3"
-    >
-      <h1 class="text-titles animate-fade-up mb-4 text-white delay-100">
-        Hacemos realidad tus proyectos
-      </h1>
+    <div class="mx-layout absolute top-1/2 left-0 block w-3/4 -translate-y-[70%] md:w-1/2 lg:w-1/3">
+      <h1 class="text-titles animate-fade-up mb-4 text-white delay-100">Hacemos realidad tus proyectos</h1>
       <h3 class="text-subtitles animate-fade-up mb-4 text-white delay-400">
         Expertos en servicios profesionales en el área de la construcción.
       </h3>
@@ -44,15 +42,11 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </a>
   </section>
 
-  <section
-    class="mx-layout relative my-10 flex flex-col items-center justify-center text-center"
-  >
+  <section class="mx-layout relative my-10 flex flex-col items-center justify-center text-center">
     <p class="text-paragraphs text-primary">
       Nuestros servicios han estado presentes en diferentes proyectos y empresas
     </p>
-    <div
-      class="mt-5 flex flex-row flex-wrap items-center justify-between gap-4"
-    >
+    <div class="mt-5 flex flex-row flex-wrap items-center justify-between gap-4">
       {
         companies.map((n) => (
           <img
@@ -65,42 +59,25 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
-  <section
-    id="sobre-nosotros"
-    class="mx-layout relative my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15"
-  >
-    <img
-      src="/img/collage.webp"
-      alt="Collage img"
-      class="h-auto w-full lg:w-[45%]"
-    />
+  <section id="sobre-nosotros" class="mx-layout relative my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15">
+    <img src="/img/collage.webp" alt="Collage img" class="h-auto w-full lg:w-[45%]" />
     <div class="flex flex-col justify-center space-y-6">
       <h2 class="text-titles-2 text-primary">
-        <span class="font-semibold">Tu aliado estratégico</span> para ejecutar tus
-        proyectos
+        <span class="font-semibold">Tu aliado estratégico</span> para ejecutar tus proyectos
       </h2>
       <p class="text-paragraphs text-primary">
-        Somos una empresa salvadoreña con amplia experiencia en el sector de la
-        construcción, especializada en soluciones integrales de ingeniería.
+        Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en
+        soluciones integrales de ingeniería.
       </p>
       <div class="flex flex-col justify-center space-y-4">
-        <p
-          class="text-paragraphs text-primary flex items-center gap-2 font-medium"
-        >
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i
-          >Compromiso
+        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
+          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Compromiso
         </p>
-        <p
-          class="text-paragraphs text-primary flex items-center gap-2 font-medium"
-        >
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i
-          >Profesionalismo
+        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
+          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Profesionalismo
         </p>
-        <p
-          class="text-paragraphs text-primary flex items-center gap-2 font-medium"
-        >
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i
-          >Enfoque en resultados
+        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
+          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Enfoque en resultados
         </p>
       </div>
       <div>
@@ -109,11 +86,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
-  <section
-    id="servicios"
-    class="relative bg-black text-white"
-    style={`height: calc(100vh * ${SERVICES.length})`}
-  >
+  <section id="servicios" class="relative bg-black text-white" style={`height: calc(100vh * ${SERVICES.length})`}>
     <div class="sticky top-0 h-screen w-full overflow-hidden">
       {
         SERVICES.map((service) => (
@@ -125,9 +98,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
           />
         ))
       }
-      <div
-        class="absolute top-1/2 right-6 z-10 hidden -translate-y-1/2 flex-col gap-3 md:flex"
-      >
+      <div class="absolute top-1/2 right-6 z-10 hidden -translate-y-1/2 flex-col gap-3 md:flex">
         {
           SERVICES.map((_, i) => (
             <button
@@ -141,47 +112,29 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
-  <section
-    id="contacto"
-    class="mx-layout my-10 flex flex-col space-y-4 md:flex-row md:items-center md:gap-10"
-  >
+  <section id="contacto" class="mx-layout my-10 flex flex-col space-y-4 md:flex-row md:items-center md:gap-10">
     <div class="w-full md:w-1/2">
-      <h2 class="text-titles-2 text-primary font-semibold">
-        Solicita una cotización
-      </h2>
+      <h2 class="text-titles-2 text-primary font-semibold">Solicita una cotización</h2>
       <div class="mt-10 flex h-full items-center gap-6">
         <img src="/icons/process_contact.svg" alt="Process bar" />
         <div class="flex h-full flex-col space-y-14">
           <div class="flex items-center gap-4">
             <img src="/img/form.webp" alt="form image" class="h-20.5 w-auto" />
-            <p class="text-primary text-sm">
-              Rellena el formulario y cuentanos sobre tu proyecto
-            </p>
+            <p class="text-primary text-sm">Rellena el formulario y cuentanos sobre tu proyecto</p>
           </div>
           <div class="flex items-center gap-4">
-            <img
-              src="/img/support.webp"
-              alt="support image"
-              class="h-20.5 w-auto"
-            />
-            <p class="text-primary text-sm">
-              Nos pondremos en contacto contigo por seguimiento
-            </p>
+            <img src="/img/support.webp" alt="support image" class="h-20.5 w-auto" />
+            <p class="text-primary text-sm">Nos pondremos en contacto contigo por seguimiento</p>
           </div>
           <div class="flex items-center gap-4">
-            <img
-              src="/img/quote.webp"
-              alt="quote image"
-              class="h-20.5 w-auto"
-            />
+            <img src="/img/quote.webp" alt="quote image" class="h-20.5 w-auto" />
             <p class="text-primary text-sm">Recibe una cotización</p>
           </div>
         </div>
       </div>
       <p class="text-primary mt-10 text-sm">
-        Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te
-        contactamos para afinar los detalles y recibirás una cotización
-        personalizada en el menor tiempo posible.
+        Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te contactamos para afinar los detalles y
+        recibirás una cotización personalizada en el menor tiempo posible.
       </p>
     </div>
     <QuoteForm />

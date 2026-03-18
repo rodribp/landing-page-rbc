@@ -5,15 +5,15 @@ export const SERVICES = [
       "Soluciones de metal mecánica adaptadas a las necesidades del sector construcción. Fabricamos e instalamos estructuras metálicas de alta calidad, garantizando seguridad, durabilidad y cumplimiento de normas técnicas.",
     details: [
       {
-        icon: "structure",
+        icon: "/icons/structure.svg",
         description: "Fabricación de estructuras metálicas livianas y pesadas.",
       },
       {
-        icon: "welding",
+        icon: "/icons/welding.svg",
         description: "Soldadura especializada (MIG, TIG, SMAW).",
       },
       {
-        icon: "cut",
+        icon: "/icons/cut.svg",
         description: "Corte y doblado de láminas y perfiles.",
       },
     ],
@@ -24,15 +24,15 @@ export const SERVICES = [
       "Servicios integrales en la fabricación e instalación de estructuras metálicas, tuberías industriales y piezas maquinadas, adaptadas a proyectos de alto rendimiento.",
     details: [
       {
-        icon: "structure",
+        icon: "/icons/structure.svg",
         description: "Fabricación de estructuras metálicas livianas y pesadas.",
       },
       {
-        icon: "pipeline",
+        icon: "/icons/pipeline.svg",
         description: "Instalación de tuberías industriales.",
       },
       {
-        icon: "gear",
+        icon: "/icons/gear.svg",
         description: "Maquinado de componentes metálicos.",
       },
     ],
@@ -43,16 +43,15 @@ export const SERVICES = [
       "Diseñamos, instalamos y damos mantenimiento a sistemas eléctricos para hogares, comercios e industrias, cumpliendo con normativas técnicas y altos estándares de calidad.",
     details: [
       {
-        icon: "bolt",
+        icon: "/icons/bolt.svg",
         description: "Instalaciones eléctricas residenciales e industriales.",
       },
       {
-        icon: "braker",
-        description:
-          "Instalación de sistemas de protección y control eléctrico.",
+        icon: "/icons/braker.svg",
+        description: "Instalación de sistemas de protección y control eléctrico.",
       },
       {
-        icon: "tabler",
+        icon: "/icons/tabler.svg",
         description: "Tableros de distribución y automatización.",
       },
     ],

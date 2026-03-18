@@ -14,13 +14,9 @@ const { title, description, details, index } = Astro.props;
     <h2 class="text-titles">{title}</h2>
     <div class="mt-48 flex items-center gap-2 md:mt-0">
       {
-        details.map((detail: any) => (
+        details.map((detail: any, i: number) => (
           <div class="flex h-full w-[33%] flex-col items-center space-y-4 bg-black/50 p-0 py-2 text-center backdrop-blur-sm duration-200 hover:bg-black md:p-2">
-            <img
-              src={`/icons/${detail.icon}.svg`}
-              alt={`${detail.icon} icon`}
-              class="h-7.5 w-auto object-contain md:h-10"
-            />
+            <img src={detail.icon} alt={`${i + 1} icon`} class="h-7.5 w-auto object-contain md:h-10" />
             <p class="text-xs md:text-sm">{detail.description}</p>
           </div>
         ))
