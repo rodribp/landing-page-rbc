@@ -4,19 +4,19 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 ---
 
 <footer class="bg-primary mt-10 text-white">
-  <div class="mx-[20px] flex flex-col md:mx-[50px] lg:mx-[150px]">
+  <div class="mx-5 flex flex-col md:mx-12.5 lg:mx-37.5">
     <div
       class="flex flex-col items-center justify-between space-y-4 py-4 md:flex-row"
     >
       <img
         src="/logo-horizontal-white.png"
         alt="Logo RBC"
-        class="hidden h-[100px] md:block"
+        class="hidden h-25 md:block"
       />
       <img
         src="/logo-vertical-white.png"
         alt="Logo RBC"
-        class="h-[100px] md:hidden"
+        class="h-25 md:hidden"
       />
       <div class="flex flex-col space-y-4 text-center md:text-left">
         <p class="text-xs font-semibold">Contáctanos</p>
@@ -49,5 +49,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 <script>
   const copyright = document.getElementById("copyright-footer");
 
-  copyright.innerHTML = `© ${new Date().getFullYear()} RBC PROYECTOS`;
+  if (copyright) {
+    copyright.innerHTML = `© ${new Date().getFullYear()} RBC PROYECTOS`;
+  }
 </script>
