@@ -5,9 +5,9 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 
 <nav class="bg-primary top-0 z-80 h-auto w-full text-xs text-white">
   <div class="mx-layout flex flex-row items-center justify-between p-0">
-    <img src="/logo-vertical-white.png" alt="Logo rbc" class="h-[48px] w-auto md:hidden" />
-    <img src="/logo-horizontal-white.png" alt="Logo rbc" class="hidden h-[48px] w-auto md:flex" />
-    <div class="flex hidden flex-row gap-20 md:flex">
+    <img src="/logo-vertical-white.png" alt="Logo rbc" class="h-12 w-auto md:hidden" />
+    <img src="/logo-horizontal-white.png" alt="Logo rbc" class="hidden h-12 w-auto md:flex" />
+    <div class="hidden flex-row gap-10 md:flex">
       <a href="#sobre-nosotros" class="fancy-underline">Sobre Nosotros</a>
       <a href="#servicios" class="fancy-underline">Servicios</a>
       <a href="#contacto" class="fancy-underline">Contáctanos</a>
@@ -19,7 +19,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
     id="mobile-menu"
     class="bg-primary fixed top-0 left-0 z-40 flex h-full w-full -translate-x-full transform flex-col items-center justify-between space-y-6 text-center text-white transition-transform duration-300 ease-in-out md:hidden"
   >
-    <img src="/logo-horizontal-white.png" alt="Logo rbc" class="mt-10 h-auto w-[224px]" />
+    <img src="/logo-horizontal-white.png" alt="Logo rbc" class="mt-10 h-auto w-56" />
     <div class="flex flex-col space-y-6 text-center">
       <a href="#sobre-nosotros" class="mobile-link fancy-underline text-lg">Sobre Nosotros</a>
       <a href="#servicios" class="mobile-link fancy-underline text-lg">Servicios</a>
@@ -61,7 +61,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 
   mobileLinks?.forEach((link) => {
     link.addEventListener("click", () => {
-      menu.classList.add("-translate-x-full");
+      menu?.classList.add("-translate-x-full");
     });
   });
 
@@ -73,5 +73,7 @@ import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
     menu?.classList.add("-translate-x-full");
   });
 
-  copyright.innerText = `© ${new Date().getFullYear()} RBC PROYECTOS.`;
+  if (copyright) {
+    copyright.innerText = `© ${new Date().getFullYear()} RBC PROYECTOS.`;
+  }
 </script>
