@@ -11,9 +11,15 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 
 <Layout>
   <section
-    class="relative h-screen bg-cover bg-fixed bg-left bg-no-repeat md:bg-center"
-    style="background-image: url('/img/inicio.webp')"
+    class="relative h-screen overflow-hidden"
   >
+    <video 
+      id="index-video"
+      class="absolute inset-0 h-full w-full object-cover object-[15%]"
+      src="/video/inicio1.mp4" autoplay muted loop playsinline preload="auto"></video>
+    
+    <div class="absolute inset-0 bg-black/60"></div>
+
     <div
       class="mx-layout absolute top-1/2 left-0 block w-3/4 -translate-y-[70%] md:w-1/2 lg:w-1/3"
     >
@@ -98,18 +104,28 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
-  <section id="servicios" class="my-10 text-white">
-    <!-- Servicio 1 -->
-    {
-      SERVICES.map((service) => (
-        <Service
-          title={service.title}
-          description={service.description}
-          details={service.details}
-          index={SERVICES.indexOf(service)}
-        />
-      ))
-    }
+  <section id="servicios" class="relative text-white bg-black" style={`height: calc(100vh * ${SERVICES.length})`}>
+    <div class="sticky top-0 h-screen w-full overflow-hidden">
+      {
+        SERVICES.map((service) => (
+          <Service
+            title={service.title}
+            description={service.description}
+            details={service.details}
+            index={SERVICES.indexOf(service)}
+          />
+        ))
+      }
+      <div class="hidden absolute right-6 top-1/2 md:flex -translate-y-1/2 flex-col gap-3 z-10">
+        {SERVICES.map((_, i) => (
+          <button
+            class="service-dot h-2.5 w-2.5 rounded-full border border-white/60 bg-transparent transition-all duration-300 cursor-pointer"
+            data-dot={i}
+            aria-label={`Go to service ${i + 1}`}
+          />
+        ))}
+      </div>
+    </div>
   </section>
 
   <section
@@ -158,3 +174,54 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     <QuoteForm />
   </section>
 </Layout>
+
+<script>
+  const section = document.getElementById('servicios')!;
+  const panels = document.querySelectorAll<HTMLElement>('.servicio-panel');
+  const dots = document.querySelectorAll<HTMLElement>('.service-dot');
+  const total = panels.length;
+  let currentIndex = 0;
+
+  function goTo(targetIndex: number) {
+    if (targetIndex === currentIndex) {
+      return;
+    }
+    panels[currentIndex].style.opacity = '0';
+    panels[currentIndex].style.pointerEvents = 'none';
+    dots[currentIndex]?.classList.remove('bg-white', 'scale-125');
+    panels[targetIndex].style.opacity = '1';
+    panels[targetIndex].style.pointerEvents = 'auto';
+    dots[targetIndex]?.classList.add('bg-white', 'scale-125');
+
+    currentIndex = targetIndex;
+  }
+
+  // Initialize first dot
+  dots[0]?.classList.add('bg-white', 'scale-125');
+
+  // Dot click navigation
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+
+      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+      const targetScroll = sectionTop + (window.innerHeight * i);
+      window.scrollTo({ top: targetScroll, behavior: 'smooth' });
+    });
+  });
+
+  // Scroll-driven panel switching
+  window.addEventListener('scroll', () => {
+    const rect = section.getBoundingClientRect();
+    const sectionHeight = section.offsetHeight - window.innerHeight;
+    const scrolled = -rect.top;
+
+    if (scrolled < 0 || scrolled > sectionHeight) {
+      return;
+    }
+
+    const progress = scrolled / sectionHeight; // 0 → 1
+    const targetIndex = Math.min(Math.floor(progress * total), total - 1);
+
+    goTo(targetIndex);
+  }, { passive: true });
+</script>

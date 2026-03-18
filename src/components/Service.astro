@@ -3,10 +3,11 @@ const { title, description, details, index } = Astro.props;
 ---
 
 <div
-  class="servicio relative h-screen w-full bg-cover bg-fixed bg-center bg-no-repeat"
-  style={`background-image: url('/services/${index + 1}.webp')`}
+  class="servicio-panel absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat transition-opacity duration-700"
+  style={`background-image: url('/services/${index + 1}.webp'); opacity: ${index === 0 ? 1 : 0}; pointer-events: ${index === 0 ? 'auto' : 'none'};`}
+  data-index={index}
 >
-  <div class="absolute"></div>
+  <div class="absolute inset-0 bg-black/20"></div>
   <div
     class="mx-layout absolute flex h-full w-[90%] flex-col justify-center space-y-6 md:w-[60%] md:space-y-12 lg:w-[45%]"
   >
