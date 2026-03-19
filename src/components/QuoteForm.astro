@@ -5,37 +5,43 @@ const inputClass =
   "h-8 w-full bg-black/20 border-b border-black/30 focus:border-black focus:outline-none caret-black px-2";
 ---
 
-<div class="mt-5 w-full md:mt-0 md:w-1/2">
-  <form id="cotizacion" action=`https://formsubmit.co/${CONTACT_EMAIL}` method="POST" class="flex flex-wrap gap-4">
-    <div class="block w-[47%] md:w-[45%]">
+<form id="cotizacion" action=`https://formsubmit.co/${CONTACT_EMAIL}` method="POST" class="block gap-4">
+  <div class="flex items-center justify-between gap-3">
+    <div class="block w-full">
       <label for="nombre" class="text-sm">Nombres<span class="text-red-500">*</span></label>
       <input type="text" maxlength="30" id="nombre" name="nombre" class={inputClass} required />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+    <div class="block w-full">
       <label for="apellido" class="text-sm">Apellidos<span class="text-red-500">*</span></label>
       <input type="text" maxlength="30" id="apellido" name="apellido" class={inputClass} required />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+  </div>
+  <div class="flex items-center justify-between gap-3">
+    <div class="block w-full">
       <label for="correo" class="text-sm">Correo electrónico <span class="text-red-500">*</span></label>
       <input type="email" maxlength="50" id="correo" name="correo" class={inputClass} required />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+    <div class="block w-full">
       <label for="telefono" class="text-sm">Teléfono</label>
       <input type="text" maxlength="16" id="telefono" name="telefono" class={inputClass} />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+  </div>
+  <div class="flex items-center justify-between gap-3">
+    <div class="block w-full">
       <label for="empresa" class="text-sm">Empresa <span class="text-red-500">*</span></label>
       <input type="text" maxlength="25" id="empresa" name="empresa" class={inputClass} required />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+    <div class="block w-full">
       <label for="cargo" class="text-sm">Cargo</label>
       <input type="text" maxlength="30" id="cargo" name="cargo" class={inputClass} />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+  </div>
+  <div class="flex items-center justify-between gap-3">
+    <div class="block w-full">
       <label for="industria" class="text-sm">Industria <span class="text-red-500">*</span></label>
       <input type="text" maxlength="50" id="industria" name="industria" class={inputClass} required />
     </div>
-    <div class="block w-[47%] md:w-[45%]">
+    <div class="block w-full">
       <label for="servicios_interes" class="text-sm">
         Servicio de interés <span class="text-red-500">*</span>
       </label>
@@ -52,32 +58,34 @@ const inputClass =
         <option value="otro">Otro</option>
       </select>
     </div>
-    <div class="block w-[98%] md:w-[93%]">
-      <label for="descripcion" class="text-sm">Descripción <span class="text-red-500">*</span></label>
-      <textarea
-        id="descripcion"
-        maxlength="500"
-        name="descripcion"
-        class="h-24 w-full border-b border-black/30 bg-black/20 px-2 caret-black focus:border-black focus:outline-none"
-        required
-      ></textarea>
-      <p id="contador" class="text-right text-sm">0 / 500</p>
-    </div>
-    <input type="text" name="_honey" style="display:none" />
-    <input type="hidden" name="_captcha" value="false" />
-    <input type="hidden" name="_subject" value="Solicitud de cotización desde la web de RBC" />
-    <input type="hidden" name="_next" value=`${url.href}#gracias` />
-    <button
-      class="inline-block cursor-pointer bg-black/60 p-2 px-6 text-lg font-semibold text-white duration-200 hover:bg-black"
-      type="submit"
+  </div>
+
+  <div class="block w-full">
+    <label for="descripcion" class="text-sm">Descripción <span class="text-red-500">*</span></label>
+    <textarea
+      id="descripcion"
+      maxlength="500"
+      name="descripcion"
+      class="h-24 w-full border-b border-black/30 bg-black/20 px-2 caret-black focus:border-black focus:outline-none"
+      required
     >
-      Enviar
-    </button>
-  </form>
-  <h2 id="gracias" class="text-titles-2 text-primary hidden font-semibold">
-    Gracias por tu interés en nuestros servicios. Nos pondremos en contacto contigo lo más pronto posible.
-  </h2>
-</div>
+    </textarea>
+    <p id="contador" class="text-right text-sm">0 / 500</p>
+  </div>
+  <input type="text" name="_honey" style="display:none" />
+  <input type="hidden" name="_captcha" value="false" />
+  <input type="hidden" name="_subject" value="Solicitud de cotización desde la web de RBC" />
+  <input type="hidden" name="_next" value=`${url.href}#gracias` />
+  <button
+    class="inline-block cursor-pointer bg-black/60 p-2 px-6 text-lg font-semibold text-white duration-200 hover:bg-black"
+    type="submit"
+  >
+    Enviar
+  </button>
+</form>
+<h2 id="gracias" class="text-titles-2 text-primary hidden font-semibold">
+  Gracias por tu interés en nuestros servicios. Nos pondremos en contacto contigo lo más pronto posible.
+</h2>
 
 <script>
   const textarea = document.getElementById("descripcion") as HTMLTextAreaElement;

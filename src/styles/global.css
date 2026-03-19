@@ -35,6 +35,6 @@ body {
   }
 
   .mx-layout {
-    @apply mx-5 md:mx-12.5 lg:mx-37.5;
+    @apply mx-5 md:mx-8 lg:mx-18;
   }
 }
