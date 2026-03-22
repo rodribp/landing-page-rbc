@@ -1,7 +1,7 @@
 ---
 title: "Fabricación de soportes de grúa estacionaria"
 description: "Diseño y fabricación de soportes estructurales de alta resistencia para sistemas de elevación en planta industrial."
-image: "https://images.pexels.com/photos/6582637/pexels-photo-6582637.jpeg"
+image: "/img/projects/6.webp"
 duration: "3 Meses"
 location: "San Salvador"
 publishedAt: 2026-02-10

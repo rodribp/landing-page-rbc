@@ -1,7 +1,7 @@
 ---
 title: "Remodelación de planta de producción alimenticia"
 description: "Adecuación de áreas de producción bajo estándares internacionales de higiene y flujo de procesos."
-image: "https://images.pexels.com/photos/6060195/pexels-photo-6060195.jpeg"
+image: "/img/projects/0.webp"
 duration: "5 Meses"
 location: "Antiguo Cuscatlán"
 publishedAt: 2026-03-26

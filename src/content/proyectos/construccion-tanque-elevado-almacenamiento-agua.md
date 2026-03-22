@@ -1,7 +1,7 @@
 ---
 title: "Construcción de tanque elevado para almacenamiento de agua"
 description: "Obra de ingeniería hidráulica para asegurar el suministro de agua potable en zona de baja presión."
-image: "https://images.pexels.com/photos/6961082/pexels-photo-6961082.jpeg"
+image: "/img/projects/9.webp"
 duration: "4 Meses"
 location: "Sonsonate"
 publishedAt: 2026-03-12

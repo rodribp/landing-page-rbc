@@ -1,7 +1,7 @@
 ---
 title: "Fabricación e instalación de portones automatizados"
 description: "Soluciones de acceso vehicular de alta seguridad y automatización para complejos residenciales privados."
-image: "https://images.pexels.com/photos/36162857/pexels-photo-36162857.jpeg"
+image: "/img/projects/7.webp"
 duration: "1 Mes"
 location: "San Salvador"
 publishedAt: 2026-03-10
