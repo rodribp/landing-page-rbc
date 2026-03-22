@@ -57,3 +57,55 @@ export const SERVICES = [
     ],
   },
 ];
+export const PROJECTS = [
+  {
+    slug: "remodelacion-complejo-consultorios",
+    title: "Remodelación de complejo de consultorios",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "fabricacion-soportes-grua-estacionaria",
+    title: "Fabricación de soportes de grúa estacionaria",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "fabricacion-tolvas-frijoles",
+    title: "Fabricación de tolvas para frijoles",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "construccion-bodega-industrial-zona-franca",
+    title: "Construcción de bodega industrial en zona franca",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "instalacion-estructura-metalica-nave-comercial",
+    title: "Instalación de estructura metálica para nave comercial",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "remodelacion-planta-produccion-alimenticia",
+    title: "Remodelación de planta de producción alimenticia",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "fabricacion-instalacion-portones-automatizados",
+    title: "Fabricación e instalación de portones automatizados",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "construccion-tanque-elevado-almacenamiento-agua",
+    title: "Construcción de tanque elevado para almacenamiento de agua",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "montaje-sistema-ventilacion-industrial",
+    title: "Montaje de sistema de ventilación industrial",
+    image: "/img/projects/dummyProject.jpg",
+  },
+  {
+    slug: "refuerzo-estructural-edificio-oficinas",
+    title: "Refuerzo estructural de edificio de oficinas",
+    image: "/img/projects/dummyProject.jpg",
+  },
+];

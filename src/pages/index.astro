@@ -3,6 +3,7 @@ import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/atoms/Button.astro";
 import Service from "@/components/Service.astro";
 import QuoteForm from "@/components/QuoteForm.astro";
+import Carrousel from "@/components/Carrousel.astro";
 import "@/styles/animations.css";
 import { SERVICES } from "@/utils/content";
 
@@ -10,6 +11,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 ---
 
 <Layout>
+  <!-- First view section with video -->
   <section class="relative h-[95vh] overflow-hidden">
     <video
       class="absolute inset-0 h-full w-full object-cover object-[15%]"
@@ -42,6 +44,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </a>
   </section>
 
+  <!-- Trusted companies section -->
   <section class="mx-layout relative my-10 flex flex-col items-center justify-center text-center">
     <p class="text-paragraphs text-primary">
       Nuestros servicios han estado presentes en diferentes proyectos y empresas
@@ -59,11 +62,31 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
+  <!-- Portfolio carrousel section -->
+  <section id="portafolio" class="my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15">
+    <div class="flex w-full flex-col items-start justify-center space-y-6 px-5 md:px-8 lg:w-[30%] lg:px-0 lg:pl-18">
+      <h2 class="text-primary">
+        <span>
+          Descubre nuestros<span></span>
+          <p class="text-3xl font-bold">PROYECTOS COMPLETADOS</p>
+        </span>
+      </h2>
+      <p class="text-paragraphs text-primary">
+        Explora nuestra experiencia y soluciones en ingeniería y construcción a través de nuestro.
+      </p>
+      <Button href="/proyectos">Portafolio de proyectos</Button>
+    </div>
+    <div class="relative w-full px-5 md:px-8 lg:w-[65%] lg:px-0">
+      <Carrousel />
+    </div>
+  </section>
+
+  <!-- About us section -->
   <section id="sobre-nosotros" class="mx-layout relative my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15">
     <img src="/img/collage.webp" alt="Collage img" class="h-auto w-full lg:w-[45%]" />
     <div class="flex flex-col justify-center space-y-6">
       <h2 class="text-titles-2 text-primary">
-        <span class="font-semibold">Tu aliado estratégico</span> para ejecutar tus proyectos
+        <span class="font-bold">Tu aliado estratégico</span> para ejecutar tus proyectos
       </h2>
       <p class="text-paragraphs text-primary">
         Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en
@@ -86,6 +109,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
+  <!-- Serives section -->
   <section id="servicios" class="relative bg-black text-white" style={`height: calc(100vh * ${SERVICES.length})`}>
     <div class="sticky top-0 h-screen w-full overflow-hidden">
       {
@@ -112,6 +136,7 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
     </div>
   </section>
 
+  <!-- Quote form section -->
   <section id="contacto" class="mx-layout my-10 flex flex-col space-y-4 md:flex-row md:items-center md:gap-10">
     <div class="w-full md:w-1/2">
       <h2 class="text-titles-2 text-primary font-semibold">Solicita una cotización</h2>
