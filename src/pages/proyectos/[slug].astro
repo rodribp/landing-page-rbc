@@ -1,6 +1,7 @@
 ---
 import LayoutMD from "@/layouts/LayoutMD.astro";
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 export async function getStaticPaths() {
   const projects = await getCollection("proyectos");
@@ -16,9 +17,9 @@ const { Content } = await project.render();
 
 <LayoutMD>
   <!-- Header -->
-  <div slot="header" class="flex flex-col gap-4 md:flex-row md:gap-10">
-    <div class="h-auto w-full md:w-[40%]">
-      <img src={project.data.image} alt={project.slug} class="h-full w-full object-cover" />
+  <div slot="header" class="relative flex flex-col gap-4 md:flex-row md:gap-10">
+    <div class="h-96 w-full md:w-[40%]">
+      <Image class="h-full w-full object-cover rounded-lg" src={project.data.image} alt={project.data.title} width={600} loading="eager" fetchpriority="high" />
     </div>
     <div class="flex w-full flex-col justify-center md:w-[60%]">
       <h1>{project.data.title}</h1>

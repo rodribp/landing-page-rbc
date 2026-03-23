@@ -1,7 +1,7 @@
 ---
 title: "Construcción de bodega industrial en zona franca"
 description: "Edificación de nave logística de gran escala diseñada para optimizar procesos de almacenamiento y despacho."
-image: "/img/projects/8.webp"
+image: "../../assets/projects/8.webp"
 duration: "8 Meses"
 location: "La Libertad"
 publishedAt: 2026-02-20

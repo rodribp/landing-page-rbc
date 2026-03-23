@@ -2,6 +2,7 @@
 import Layout from "@/layouts/Layout.astro";
 import Button from "@/components/atoms/Button.astro";
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 
 const projects = (await getCollection("proyectos"))
   .filter((p) => p.data.publishedAt)
@@ -16,8 +17,8 @@ const restProjects = projects.slice(1);
     <h1 class="text-titles-2 text-primary font-bold">Portafolio de proyectos completados</h1>
     <!-- Latest project -->
     <div class="relative mt-6 flex flex-col gap-4 py-2 md:flex-row md:items-stretch md:gap-10">
-      <div class="max-h-125 w-full pl-2 md:w-[40%]">
-        <img class="h-full w-full rounded-lg object-cover" src={latestProject.data.image} alt={latestProject.slug} />
+      <div class="max-h-96 w-full md:w-[40%]">
+        <Image class="h-full w-full rounded-lg object-cover" src={latestProject.data.image} alt={latestProject.data.title} width={600} loading="eager" fetchpriority="high" />
       </div>
       <div class="text-primary flex w-full flex-col items-start justify-center gap-4 md:w-[60%]">
         <h2 class="text-titles-2 font-bold">{latestProject.data.title}</h2>
@@ -45,10 +46,12 @@ const restProjects = projects.slice(1);
         restProjects.map((project) => (
           <a href={`/proyectos/${project.slug}`} class="text-primary group flex w-full flex-col gap-2">
             <div class="overflow-hidden">
-              <img
+              <Image
                 class="aspect-video h-auto w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 src={project.data.image}
                 alt={project.slug}
+                width={400}
+                height={300}
               />
             </div>
             <h3 class="text-md font-bold md:text-lg">{project.data.title}</h3>

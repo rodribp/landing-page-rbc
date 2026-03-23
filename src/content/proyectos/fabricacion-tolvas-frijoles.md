@@ -1,7 +1,7 @@
 ---
 title: "Fabricación de tolvas para frijoles"
 description: "Desarrollo de sistemas de almacenamiento y descarga para granos básicos con estándares de grado alimenticio."
-image: "/img/projects/5.webp"
+image: "../../assets/projects/5.webp"
 duration: "2 Meses"
 location: "Santa Ana"
 publishedAt: 2026-02-15

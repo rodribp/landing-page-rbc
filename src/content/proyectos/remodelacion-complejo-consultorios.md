@@ -1,7 +1,7 @@
 ---
 title: "Remodelación de complejo de consultorios"
 description: "Se remodeló una casa personal en zacatecoluca y se adaptó para ser un espacio rentable y asequible para renta de consultorios médicos."
-image: "/img/projects/1.webp"
+image: "../../assets/projects/1.webp"
 duration: "6 Meses"
 location: "Zacatecoluca"
 publishedAt: 2026-01-28

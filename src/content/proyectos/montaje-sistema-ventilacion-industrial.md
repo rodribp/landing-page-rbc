@@ -1,7 +1,7 @@
 ---
 title: "Montaje de sistema de ventilación industrial"
 description: "Implementación de sistemas de extracción y renovación de aire para mejorar el confort térmico en talleres."
-image: "/img/projects/3.webp"
+image: "../../assets/projects/3.webp"
 duration: "2 Meses"
 location: "Soyapango"
 publishedAt: 2026-03-18

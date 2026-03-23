@@ -1,7 +1,7 @@
 ---
 title: "Refuerzo estructural de edificio de oficinas"
 description: "Intervención técnica para aumentar la capacidad de carga y resistencia sísmica de una edificación existente."
-image: "/img/projects/2.webp"
+image: "../../assets/projects/2.webp"
 duration: "7 Meses"
 location: "San Salvador"
 publishedAt: 2026-03-22

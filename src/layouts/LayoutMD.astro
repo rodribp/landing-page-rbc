@@ -4,20 +4,15 @@ import Layout from "./Layout.astro";
 ---
 
 <Layout>
-  <section id="header" class="mx-layout text-primary my-10">
+  <section id="header" class="relative mx-layout text-primary my-10">
     <slot name="header" />
   </section>
-  <section id="content" class="mx-layout text-primary mb-10">
+  <section id="content" class="relative mx-layout text-primary mb-10">
     <slot name="content" />
   </section>
 </Layout>
 
 <style>
-  /* Max width for images in content */
-  section#content :global(img) {
-    max-width: 650px;
-  }
-
   /* H1 - not visible in mockup, keeping proportional */
   section :global(h1) {
     font-size: 2.5rem;
@@ -150,11 +145,11 @@ import Layout from "./Layout.astro";
   }
 
   /* Images inside MD */
-  section :global(img) {
-    max-width: 100%;
+  section#content :global(img) {
     height: auto;
     border-radius: 4px;
     margin: 1rem 0;
+    max-width: 650px;
   }
 
   /* Bold & italic */

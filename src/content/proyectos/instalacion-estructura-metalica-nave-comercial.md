@@ -1,7 +1,7 @@
 ---
 title: "Instalación de estructura metálica para nave comercial"
 description: "Montaje estructural para centro de distribución comercial con enfoque en estética y rapidez de ejecución."
-image: "/img/projects/4.webp"
+image: "../../assets/projects/4.webp"
 duration: "4 Meses"
 location: "San Miguel"
 publishedAt: 2026-02-28
