@@ -7,12 +7,12 @@ import Carrousel from "@/components/Carrousel.astro";
 import "@/styles/animations.css";
 import { SERVICES } from "@/utils/content";
 
-const companies = Array.from({ length: 8 }, (_, i) => i + 1);
+const companies = Array.from({ length: 15 }, (_, i) => i + 1);
 ---
 
 <Layout>
   <!-- First view section with video -->
-  <section class="relative h-[95vh] overflow-hidden">
+  <section class="relative h-[98vh] overflow-hidden">
     <video
       class="absolute inset-0 h-full w-full object-cover object-[15%]"
       autoplay
@@ -45,17 +45,17 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
   </section>
 
   <!-- Trusted companies section -->
-  <section class="mx-layout relative my-10 flex flex-col items-center justify-center text-center">
-    <p class="text-paragraphs text-primary">
+  <section id="sobre-nosotros" class="mx-layout relative my-10 flex flex-col items-center justify-center text-center">
+    <p class="text-paragraphs">
       Nuestros servicios han estado presentes en diferentes proyectos y empresas
     </p>
-    <div class="mt-5 flex flex-row flex-wrap items-center justify-between gap-4">
+    <div class="mt-5 flex flex-row flex-wrap items-center justify-between space-x-4 space-y-4">
       {
         companies.map((n) => (
           <img
             src={`/trusted_companies/${n}.png`}
             alt={`Compañia ${n}`}
-            class="h-auto w-[20%] object-contain md:w-[10%]"
+            class="h-auto w-[8%] md:w-[10%] object-contain object-center grayscale-100"
           />
         ))
       }
@@ -85,79 +85,91 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
   <section class="mx-layout relative my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15">
     <img src="/img/collage.webp" alt="Collage img" class="h-auto w-full lg:w-[45%]" />
     <div class="flex flex-col justify-center space-y-6">
-      <h2 class="text-titles-2 text-primary">
-        <span class="font-bold">Tu aliado estratégico</span> para ejecutar tus proyectos
-      </h2>
-      <p class="text-paragraphs text-primary">
+      <div class="flex flex-col justify-center space-y-2 w-full">
+        <h2 class="text-4xl text-primary font-bold">Tu aliado estratégico</h2>
+        <h3 class="text-subtitles">para ejecutar tus proyectos</h3>
+      </div>
+      <p class="text-paragraphs">
         Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en
         soluciones integrales de ingeniería.
       </p>
-      <div class="flex flex-col justify-center space-y-4">
-        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Compromiso
-        </p>
-        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Profesionalismo
-        </p>
-        <p class="text-paragraphs text-primary flex items-center gap-2 font-medium">
-          <i><img src="/icons/check.svg" alt="check icon" class="w-[80%]" /></i>Enfoque en resultados
-        </p>
-      </div>
-      <div>
-        <Button href="#servicios">Oferta de servicios</Button>
+      <div class="flex gap-2 w-full mt-6">
+        <Button href="#servicios" data-goto-service="0" class="flex-1 px-2! md:px-6!">
+          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
+            <img src="/icons/structure.svg" alt="">
+            <p>Servicios de metal mecánica</p>
+          </div>
+        </Button>
+        <Button href="#servicios" data-goto-service="1" class="flex-1 px-2! md:px-6!">
+          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
+            <img src="/icons/pipeline.svg" alt="">
+            <p>Estructuras, tuberías y maquinado</p>
+          </div>
+        </Button>
+        <Button href="#servicios" data-goto-service="2" class="flex-1 px-2! md:px-6!">
+          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
+            <img src="/icons/bolt.svg" alt="">
+            <p>Electricidad residencial e industrial</p>
+          </div>
+        </Button>
       </div>
     </div>
   </section>
 
-  <!-- Serives section -->
-  <section id="servicios" class="relative bg-black text-white" style={`height: calc(100vh * ${SERVICES.length})`}>
-    <div class="sticky top-0 h-screen w-full overflow-hidden">
+  <!-- Services carousel section -->
+  <section id="servicios" class="relative h-screen bg-black text-white overflow-hidden">
+    {
+      SERVICES.map((service) => (
+        <Service
+          title={service.title}
+          description={service.description}
+          details={service.details}
+          index={SERVICES.indexOf(service)}
+        />
+      ))
+    }
+
+    <!-- Click hint -->
+    <p class="absolute top-4 left-1/2 z-10 -translate-x-1/2 text-xs text-white/50 select-none">
+      Haga click en cualquier parte para ver el siguiente servicio
+    </p>
+
+    <!-- Dots navigation (bottom center) -->
+    <div class="absolute bottom-6 left-1/2 z-10 flex -translate-x-1/2 flex-row gap-3">
       {
-        SERVICES.map((service) => (
-          <Service
-            title={service.title}
-            description={service.description}
-            details={service.details}
-            index={SERVICES.indexOf(service)}
+        SERVICES.map((_, i) => (
+          <button
+            class="service-dot h-2.5 w-2.5 cursor-pointer rounded-full border border-white/60 bg-transparent transition-all duration-300"
+            data-dot={i}
+            aria-label={`Go to service ${i + 1}`}
           />
         ))
       }
-      <div class="absolute top-1/2 right-6 z-10 hidden -translate-y-1/2 flex-col gap-3 md:flex">
-        {
-          SERVICES.map((_, i) => (
-            <button
-              class="service-dot h-2.5 w-2.5 cursor-pointer rounded-full border border-white/60 bg-transparent transition-all duration-300"
-              data-dot={i}
-              aria-label={`Go to service ${i + 1}`}
-            />
-          ))
-        }
-      </div>
     </div>
   </section>
 
   <!-- Quote form section -->
   <section id="contacto" class="mx-layout my-10 flex flex-col space-y-4 md:flex-row md:items-center md:gap-10">
     <div class="w-full md:w-1/2">
-      <h2 class="text-titles-2 text-primary font-semibold">Solicita una cotización</h2>
+      <h2 class="text-titles-2 text-primary font-semibold">¿Necesitas ayuda? Estamos para servirte</h2>
       <div class="mt-10 flex h-full items-center gap-6">
         <img src="/icons/process_contact.svg" alt="Process bar" />
         <div class="flex h-full flex-col space-y-14">
           <div class="flex items-center gap-4">
             <img src="/img/form.webp" alt="form image" class="h-20.5 w-auto" />
-            <p class="text-primary text-sm">Rellena el formulario y cuentanos sobre tu proyecto</p>
+            <p class="text-sm">Rellena el formulario y cuentanos sobre tu proyecto</p>
           </div>
           <div class="flex items-center gap-4">
             <img src="/img/support.webp" alt="support image" class="h-20.5 w-auto" />
-            <p class="text-primary text-sm">Nos pondremos en contacto contigo por seguimiento</p>
+            <p class="text-sm">Nos pondremos en contacto contigo por seguimiento</p>
           </div>
           <div class="flex items-center gap-4">
             <img src="/img/quote.webp" alt="quote image" class="h-20.5 w-auto" />
-            <p class="text-primary text-sm">Recibe una cotización</p>
+            <p class="text-sm">Recibe una cotización</p>
           </div>
         </div>
       </div>
-      <p class="text-primary mt-10 text-sm">
+      <p class="mt-10 text-sm">
         Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te contactamos para afinar los detalles y
         recibirás una cotización personalizada en el menor tiempo posible.
       </p>
@@ -169,23 +181,19 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 </Layout>
 
 <script>
-  const section = document.getElementById("servicios")!;
   const panels = document.querySelectorAll<HTMLElement>(".servicio-panel");
   const dots = document.querySelectorAll<HTMLElement>(".service-dot");
   const total = panels.length;
   let currentIndex = 0;
 
   function goTo(targetIndex: number) {
-    if (targetIndex === currentIndex) {
-      return;
-    }
+    if (targetIndex === currentIndex) return;
     panels[currentIndex].style.opacity = "0";
     panels[currentIndex].style.pointerEvents = "none";
     dots[currentIndex]?.classList.remove("bg-white", "scale-125");
     panels[targetIndex].style.opacity = "1";
     panels[targetIndex].style.pointerEvents = "auto";
     dots[targetIndex]?.classList.add("bg-white", "scale-125");
-
     currentIndex = targetIndex;
   }
 
@@ -194,30 +202,25 @@ const companies = Array.from({ length: 8 }, (_, i) => i + 1);
 
   // Dot click navigation
   dots.forEach((dot, i) => {
-    dot.addEventListener("click", () => {
-      const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-      const targetScroll = sectionTop + window.innerHeight * i;
-      window.scrollTo({ top: targetScroll, behavior: "smooth" });
-    });
+    dot.addEventListener("click", () => goTo(i));
   });
 
-  // Scroll-driven panel switching
-  window.addEventListener(
-    "scroll",
-    () => {
-      const rect = section.getBoundingClientRect();
-      const sectionHeight = section.offsetHeight - window.innerHeight;
-      const scrolled = -rect.top;
+  // Click anywhere on the section to advance (wraps around)
+  const section = document.getElementById("servicios")!;
+  section.addEventListener("click", (e) => {
+    const target = e.target as HTMLElement;
+    if (target.closest("[data-dot]")) return;
+    goTo((currentIndex + 1) % total);
+  });
 
-      if (scrolled < 0 || scrolled > sectionHeight) {
-        return;
-      }
-
-      const progress = scrolled / sectionHeight; // 0 → 1
-      const targetIndex = Math.min(Math.floor(progress * total), total - 1);
-
-      goTo(targetIndex);
-    },
-    { passive: true },
-  );
+  // "About us" buttons → jump to specific service
+  document.querySelectorAll<HTMLElement>("[data-goto-service]").forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      const index = parseInt(btn.dataset.gotoService ?? "0", 10);
+      document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" });
+      // wait for scroll to finish before switching panel
+      setTimeout(() => goTo(index), 400);
+    });
+  });
 </script>
