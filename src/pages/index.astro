@@ -7,7 +7,7 @@ import Carrousel from "@/components/Carrousel.astro";
 import "@/styles/animations.css";
 import { SERVICES } from "@/utils/content";
 
-const companies = Array.from({ length: 15 }, (_, i) => i + 1);
+const companies = Array.from({ length: 13 }, (_, i) => i + 1);
 ---
 
 <Layout>
@@ -28,9 +28,9 @@ const companies = Array.from({ length: 15 }, (_, i) => i + 1);
     <div class="absolute inset-0 bg-black/60"></div>
 
     <div class="mx-layout absolute top-1/2 left-0 block w-3/4 -translate-y-[60%] md:w-1/2 lg:w-1/3">
-      <h1 class="text-titles animate-fade-up mb-4 text-white delay-100">Hacemos realidad tus proyectos</h1>
+      <h1 class="text-titles animate-fade-up mb-4 text-white delay-100">Permítenos ser parte de tu equipo</h1>
       <h3 class="text-subtitles animate-fade-up mb-4 text-white delay-400">
-        Expertos en servicios profesionales en el área de la construcción.
+        Servicios profesionales en el área de la construcción.
       </h3>
       <Button href="#contacto" class="fade-in-on-load">¡Cotiza ya!</Button>
     </div>
@@ -55,7 +55,7 @@ const companies = Array.from({ length: 15 }, (_, i) => i + 1);
           <img
             src={`/trusted_companies/${n}.png`}
             alt={`Compañia ${n}`}
-            class="h-auto w-[8%] md:w-[10%] object-contain object-center grayscale-100"
+            class="h-auto w-[8%] md:w-[6%] object-contain object-center grayscale-100"
           />
         ))
       }
@@ -91,7 +91,7 @@ const companies = Array.from({ length: 15 }, (_, i) => i + 1);
       </div>
       <p class="text-paragraphs">
         Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en
-        soluciones integrales de ingeniería.
+        soluciones integrales.
       </p>
       <div class="flex gap-2 w-full mt-6">
         <Button href="#servicios" data-goto-service="0" class="flex-1 px-2! md:px-6!">
@@ -170,8 +170,8 @@ const companies = Array.from({ length: 15 }, (_, i) => i + 1);
         </div>
       </div>
       <p class="mt-10 text-sm">
-        Nuestro proceso es rápido y sencillo. Cuéntanos lo que necesitas, te contactamos para afinar los detalles y
-        recibirás una cotización personalizada en el menor tiempo posible.
+        Cuéntanos lo que necesitas, te contactamos para afinar los detalles y
+        recibirás una oferta personalizada en el menor tiempo posible.
       </p>
     </div>
     <div class="w-full md:w-1/2">

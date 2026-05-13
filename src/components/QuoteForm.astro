@@ -8,11 +8,11 @@ const inputClass =
 <form id="cotizacion" action=`https://formsubmit.co/${CONTACT_EMAIL}` method="POST" class="block gap-4">
   <div class="flex items-center justify-between gap-3">
     <div class="block w-full">
-      <label for="nombre" class="text-sm">Nombres<span class="text-red-500">*</span></label>
+      <label for="nombre" class="text-sm">Nombres <span class="text-red-500">*</span></label>
       <input type="text" maxlength="30" id="nombre" name="nombre" class={inputClass} required />
     </div>
     <div class="block w-full">
-      <label for="apellido" class="text-sm">Apellidos<span class="text-red-500">*</span></label>
+      <label for="apellido" class="text-sm">Apellidos <span class="text-red-500">*</span></label>
       <input type="text" maxlength="30" id="apellido" name="apellido" class={inputClass} required />
     </div>
   </div>
@@ -22,8 +22,8 @@ const inputClass =
       <input type="email" maxlength="50" id="correo" name="correo" class={inputClass} required />
     </div>
     <div class="block w-full">
-      <label for="telefono" class="text-sm">Teléfono</label>
-      <input type="text" maxlength="16" id="telefono" name="telefono" class={inputClass} />
+      <label for="telefono" class="text-sm">Teléfono <span class="text-red-500">*</span></label>
+      <input type="text" maxlength="16" id="telefono" name="telefono" class={inputClass} required />
     </div>
   </div>
   <div class="flex items-center justify-between gap-3">
@@ -38,12 +38,12 @@ const inputClass =
   </div>
   <div class="flex items-center justify-between gap-3">
     <div class="block w-full">
-      <label for="industria" class="text-sm">Industria <span class="text-red-500">*</span></label>
-      <input type="text" maxlength="50" id="industria" name="industria" class={inputClass} required />
+      <label for="industria" class="text-sm">Industria</label>
+      <input type="text" maxlength="50" id="industria" name="industria" class={inputClass} />
     </div>
     <div class="block w-full">
       <label for="servicios_interes" class="text-sm">
-        Servicio de interés <span class="text-red-500">*</span>
+        Servicio de interés
       </label>
 
       <select
@@ -61,15 +61,13 @@ const inputClass =
   </div>
 
   <div class="block w-full">
-    <label for="descripcion" class="text-sm">Descripción <span class="text-red-500">*</span></label>
+    <label for="descripcion" class="text-sm">Descripción</label>
     <textarea
       id="descripcion"
       maxlength="500"
       name="descripcion"
       class="h-24 w-full border-b border-black/30 bg-black/20 px-2 caret-black focus:border-black focus:outline-none"
-      required
-    >
-    </textarea>
+    ></textarea>
     <p id="contador" class="text-right text-sm">0 / 500</p>
   </div>
   <input type="text" name="_honey" style="display:none" />
