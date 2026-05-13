@@ -6,16 +6,16 @@ export const SERVICES = [
     details: [
       {
         icon: "/icons/structure.svg",
-        description: "Fabricación de estructuras metálicas livianas y pesadas.",
+        description: "Fabricación de estructuras metálicas.",
       },
       {
         icon: "/icons/welding.svg",
         description: "Soldadura especializada (MIG, TIG, SMAW).",
       },
       {
-        icon: "/icons/cut.svg",
-        description: "Corte y doblado de láminas y perfiles.",
-      },
+        icon: "/icons/hammer.svg",
+        description: "Herrería",
+      }
     ],
   },
   {
@@ -25,7 +25,7 @@ export const SERVICES = [
     details: [
       {
         icon: "/icons/structure.svg",
-        description: "Fabricación de estructuras metálicas livianas y pesadas.",
+        description: "Fabricación de estructuras metálicas.",
       },
       {
         icon: "/icons/pipeline.svg",
@@ -33,7 +33,7 @@ export const SERVICES = [
       },
       {
         icon: "/icons/gear.svg",
-        description: "Maquinado de componentes metálicos.",
+        description: "Maquinado de piezas.",
       },
     ],
   },
@@ -51,7 +51,7 @@ export const SERVICES = [
         description: "Instalación de sistemas de protección y control eléctrico.",
       },
       {
-        icon: "/icons/tabler.svg",
+        icon: "/icons/tabler.png",
         description: "Tableros de distribución y automatización.",
       },
     ],
