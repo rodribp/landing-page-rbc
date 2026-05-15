@@ -6,8 +6,9 @@ import QuoteForm from "@/components/QuoteForm.astro";
 import Carrousel from "@/components/Carrousel.astro";
 import "@/styles/animations.css";
 import { SERVICES } from "@/utils/content";
+import { CONTACT_EMAIL, CONTACT_PHONE } from "@/utils/global_variables";
 
-const companies = Array.from({ length: 13 }, (_, i) => i + 1);
+const companies = Array.from({ length: 18 }, (_, i) => i + 1);
 ---
 
 <Layout>
@@ -49,13 +50,13 @@ const companies = Array.from({ length: 13 }, (_, i) => i + 1);
     <p class="text-paragraphs text-primary">
       Nuestros servicios han estado presentes en diferentes proyectos y empresas
     </p>
-    <div class="mt-5 flex flex-row flex-wrap items-center justify-between space-x-4 space-y-4">
+    <div class="mt-5 flex flex-row flex-wrap items-center justify-center space-y-2 space-x-2">
       {
         companies.map((n) => (
           <img
             src={`/trusted_companies/${n}.png`}
             alt={`Compañia ${n}`}
-            class="h-auto w-[8%] md:w-[6%] object-contain object-center grayscale-100"
+            class="h-auto md:h-16 w-[6%] object-contain object-center md:w-[9%]"
           />
         ))
       }
@@ -85,30 +86,30 @@ const companies = Array.from({ length: 13 }, (_, i) => i + 1);
   <section class="mx-layout relative my-10 flex flex-col space-y-4 lg:flex-row lg:gap-15">
     <img src="/img/collage.webp" alt="Collage img" class="h-auto w-full lg:w-[45%]" />
     <div class="flex flex-col justify-center space-y-6">
-      <div class="flex flex-col justify-center space-y-2 w-full">
-        <h2 class="text-4xl text-primary font-bold">Tu aliado estratégico</h2>
+      <div class="flex w-full flex-col justify-center space-y-2">
+        <h2 class="text-primary text-4xl font-bold">Tu aliado estratégico</h2>
         <h3 class="text-subtitles">para ejecutar tus proyectos</h3>
       </div>
       <p class="text-paragraphs">
         Somos una empresa salvadoreña con amplia experiencia en el sector de la construcción, especializada en
         soluciones integrales.
       </p>
-      <div class="flex gap-2 w-full mt-6">
+      <div class="mt-6 flex w-full gap-2">
         <Button href="#servicios" data-goto-service="0" class="flex-1 px-2! md:px-6!">
-          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
-            <img src="/icons/structure.svg" alt="">
+          <div class="flex flex-col items-center space-y-2 text-center text-xs font-normal">
+            <img src="/icons/structure.svg" alt="" />
             <p>Servicios de metal mecánica</p>
           </div>
         </Button>
         <Button href="#servicios" data-goto-service="1" class="flex-1 px-2! md:px-6!">
-          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
-            <img src="/icons/pipeline.svg" alt="">
+          <div class="flex flex-col items-center space-y-2 text-center text-xs font-normal">
+            <img src="/icons/pipeline.svg" alt="" />
             <p>Estructuras, tuberías y maquinado</p>
           </div>
         </Button>
         <Button href="#servicios" data-goto-service="2" class="flex-1 px-2! md:px-6!">
-          <div class="flex flex-col space-y-2 items-center text-center text-xs font-normal">
-            <img src="/icons/bolt.svg" alt="">
+          <div class="flex flex-col items-center space-y-2 text-center text-xs font-normal">
+            <img src="/icons/bolt.svg" alt="" />
             <p>Electricidad residencial e industrial</p>
           </div>
         </Button>
@@ -117,7 +118,7 @@ const companies = Array.from({ length: 13 }, (_, i) => i + 1);
   </section>
 
   <!-- Services carousel section -->
-  <section id="servicios" class="relative h-screen bg-black text-white overflow-hidden">
+  <section id="servicios" class="relative h-screen overflow-hidden bg-black text-white">
     {
       SERVICES.map((service) => (
         <Service
@@ -154,24 +155,41 @@ const companies = Array.from({ length: 13 }, (_, i) => i + 1);
       <h2 class="text-titles-2 text-primary font-semibold">¿Necesitas ayuda? Estamos para servirte</h2>
       <div class="mt-10 flex h-full items-center gap-6">
         <img src="/icons/process_contact.svg" alt="Process bar" />
-        <div class="flex h-full flex-col space-y-14">
-          <div class="flex items-center gap-4">
-            <img src="/img/form.webp" alt="form image" class="h-20.5 w-auto" />
-            <p class="text-sm">Rellena el formulario y cuentanos sobre tu proyecto</p>
+        <div class="flex h-full flex-col space-y-18">
+          <p class="text-sm">Rellena el formulario y cuentanos sobre tu proyecto</p>
+          <div class="flex flex-col gap-1">
+            <p class="text-sm">
+              Envíanos un mensaje o llámanos con una breve descripción para corresponder tu llamada:
+            </p>
+            <ul>
+              <li>
+                <a class="flex items-center gap-2 text-sm text-blue-600 underline" href=`mailto:${CONTACT_EMAIL}`>
+                  <span class="block h-4 w-4 bg-blue-500 mask-[url('/icons/mail.svg')] mask-contain"></span>
+                  {CONTACT_EMAIL}
+                </a>
+              </li>
+              <li>
+                <a class="flex items-center gap-2 text-sm text-blue-600 underline" href=`tel:${CONTACT_PHONE.value}`>
+                  <span class="block h-4 w-4 bg-blue-500 mask-[url('/icons/phone.svg')] mask-contain"></span>
+                  {CONTACT_PHONE.string}
+                </a>
+              </li>
+              <li>
+                <a
+                  class="flex items-center gap-2 text-sm text-blue-600 underline"
+                  href=`https://wa.me/${CONTACT_PHONE.value}`
+                >
+                  <span class="block h-4 w-4 bg-blue-500 mask-[url('/icons/whatsapp.svg')] mask-contain"></span>WhatsApp
+                </a>
+              </li>
+            </ul>
           </div>
-          <div class="flex items-center gap-4">
-            <img src="/img/support.webp" alt="support image" class="h-20.5 w-auto" />
-            <p class="text-sm">Nos pondremos en contacto contigo por seguimiento</p>
-          </div>
-          <div class="flex items-center gap-4">
-            <img src="/img/quote.webp" alt="quote image" class="h-20.5 w-auto" />
-            <p class="text-sm">Recibe una cotización</p>
-          </div>
+          <p class="text-sm">Te contactaremos lo antes posible</p>
         </div>
       </div>
       <p class="mt-10 text-sm">
-        Cuéntanos lo que necesitas, te contactamos para afinar los detalles y
-        recibirás una oferta personalizada en el menor tiempo posible.
+        Cuéntanos lo que necesitas, te contactamos para afinar los detalles y recibirás una oferta personalizada en el
+        menor tiempo posible.
       </p>
     </div>
     <div class="w-full md:w-1/2">
