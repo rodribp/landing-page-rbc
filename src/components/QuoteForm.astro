@@ -1,11 +1,9 @@
 ---
-import { CONTACT_EMAIL } from "@/utils/global_variables";
-const url = Astro.url;
 const inputClass =
   "h-8 w-full bg-black/20 border-b border-black/30 focus:border-black focus:outline-none caret-black px-2";
 ---
 
-<form id="cotizacion" action=`https://formsubmit.co/${CONTACT_EMAIL}` method="POST" class="block gap-4">
+<form id="cotizacion" class="block gap-4">
   <div class="flex items-center justify-between gap-3">
     <div class="block w-full">
       <label for="nombre" class="text-sm">Nombres <span class="text-red-500">*</span></label>
@@ -42,15 +40,11 @@ const inputClass =
       <input type="text" maxlength="50" id="industria" name="industria" class={inputClass} />
     </div>
     <div class="block w-full">
-      <label for="servicios_interes" class="text-sm">
-        Servicio de interés
-      </label>
-
+      <label for="servicio_interes" class="text-sm">Servicio de interés</label>
       <select
-        id="servicios_interes"
-        name="servicios_interes"
+        id="servicio_interes"
+        name="servicio_interes"
         class="h-8 w-full overflow-hidden border-b border-black/30 bg-black/20 px-2 text-sm focus:border-black focus:outline-none"
-        required
       >
         <option value="metal_mecanica">Metal mecánica</option>
         <option value="estructuras_tuberias_maquinado">Estructuras, tuberías y maquinado</option>
@@ -59,55 +53,59 @@ const inputClass =
       </select>
     </div>
   </div>
-
   <div class="block w-full">
-    <label for="descripcion" class="text-sm">Descripción</label>
+    <label for="descripcion" class="text-sm">Descripción <span class="text-red-500">*</span></label>
     <textarea
       id="descripcion"
       maxlength="500"
       name="descripcion"
       class="h-24 w-full border-b border-black/30 bg-black/20 px-2 caret-black focus:border-black focus:outline-none"
+      required
     ></textarea>
     <p id="contador" class="text-right text-sm">0 / 500</p>
   </div>
-  <input type="text" name="_honey" style="display:none" />
-  <input type="hidden" name="_captcha" value="false" />
-  <input type="hidden" name="_subject" value="Solicitud de cotización desde la web de RBC" />
-  <input type="hidden" name="_next" value=`${url.href}#gracias` />
+  <input type="text" name="_honey" style="display:none" autocomplete="off" tabindex="-1" />
+  <p id="form-error" class="hidden text-sm text-red-500"></p>
   <button
-    class="inline-block cursor-pointer bg-black/60 p-2 px-6 text-lg font-semibold text-white duration-200 hover:bg-black"
+    id="submit-btn"
+    class="inline-block cursor-pointer bg-black/60 p-2 px-6 text-lg font-semibold text-white duration-200 hover:bg-black disabled:opacity-50"
     type="submit"
   >
     Enviar
   </button>
 </form>
+
 <h2 id="gracias" class="text-titles-2 text-primary hidden font-semibold">
   Gracias por tu interés en nuestros servicios. Nos pondremos en contacto contigo lo más pronto posible.
 </h2>
 
 <script>
-  const textarea = document.getElementById("descripcion") as HTMLTextAreaElement;
-  const contador = document.getElementById("contador");
+  import { actions } from 'astro:actions';
 
-  textarea?.addEventListener("input", () => {
-    if (contador) {
-      contador.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
+  const form = document.getElementById('cotizacion') as HTMLFormElement;
+  const gracias = document.getElementById('gracias');
+  const errorEl = document.getElementById('form-error');
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    submitBtn.disabled = true;
+
+    const { error } = await actions.send(new FormData(form));
+
+    if (error) {
+      errorEl!.textContent = error.message;
+      errorEl!.classList.remove('hidden');
+      submitBtn.disabled = false;
+    } else {
+      form.classList.add('hidden');
+      gracias?.classList.remove('hidden');
     }
   });
 
-  const gracias = document.getElementById("gracias");
-  const form = document.getElementById("cotizacion");
-
-  if (window.location.hash === "#gracias") {
-    form?.classList.add("hidden");
-    gracias?.classList.remove("hidden");
-
-    setTimeout(() => {
-      gracias?.classList.add("hidden");
-      form?.classList.remove("hidden");
-
-      // Limpiar el hash para que no se quede pegado
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-    }, 5000);
-  }
+  const textarea = document.getElementById('descripcion') as HTMLTextAreaElement;
+  const contador = document.getElementById('contador');
+  textarea?.addEventListener('input', () => {
+    if (contador) contador.textContent = `${textarea.value.length} / ${textarea.maxLength}`;
+  });
 </script>

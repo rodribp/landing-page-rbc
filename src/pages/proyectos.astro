@@ -20,7 +20,7 @@ const restProjects = projects.slice(1);
       <div class="max-h-96 w-full md:w-[40%]">
         <Image class="h-full w-full rounded-lg object-cover" src={latestProject.data.image} alt={latestProject.data.title} width={600} loading="eager" fetchpriority="high" />
       </div>
-      <div class="text-primary flex w-full flex-col items-start justify-center gap-4 md:w-[60%]">
+      <div class="text-black flex w-full flex-col items-start justify-center gap-4 md:w-[60%]">
         <h2 class="text-titles-2 font-bold">{latestProject.data.title}</h2>
         <div class="flex items-center gap-6">
           <p class="flex items-center gap-2">
@@ -35,7 +35,7 @@ const restProjects = projects.slice(1);
           </p>
         </div>
         <p class="text-paragraph">{latestProject.data.description}</p>
-        <Button href={`/proyectos/${latestProject.slug}`}>Leer mas</Button>
+        <Button href={`/proyectos/${latestProject.id.replace(/\.md$/, '')}`}>Leer mas</Button>
       </div>
     </div>
   </section>
@@ -44,12 +44,12 @@ const restProjects = projects.slice(1);
     <div class="grid grid-cols-2 gap-6 md:grid-cols-3">
       {
         restProjects.map((project) => (
-          <a href={`/proyectos/${project.slug}`} class="text-primary group flex w-full flex-col gap-2">
+          <a href={`/proyectos/${project.id.replace(/\.md$/, '')}`} class="text-black group flex w-full flex-col gap-2">
             <div class="overflow-hidden">
               <Image
                 class="aspect-video h-auto w-full object-cover object-center transition-transform duration-300 group-hover:scale-105"
                 src={project.data.image}
-                alt={project.slug}
+                alt={project.data.title}
                 width={400}
                 height={300}
               />

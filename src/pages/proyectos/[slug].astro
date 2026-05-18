@@ -2,17 +2,18 @@
 import LayoutMD from "@/layouts/LayoutMD.astro";
 import { getCollection } from "astro:content";
 import { Image } from "astro:assets";
+import { render } from "astro:content";
 
 export async function getStaticPaths() {
   const projects = await getCollection("proyectos");
   return projects.map((project) => ({
-    params: { slug: project.slug },
+    params: { slug: project.id },
     props: { project },
   }));
 }
 
 const { project } = Astro.props;
-const { Content } = await project.render();
+const { Content } = await render(project);
 ---
 
 <LayoutMD>
@@ -22,7 +23,7 @@ const { Content } = await project.render();
       <Image class="h-full w-full object-cover rounded-lg" src={project.data.image} alt={project.data.title} width={600} loading="eager" fetchpriority="high" />
     </div>
     <div class="flex w-full flex-col justify-center md:w-[60%]">
-      <h1>{project.data.title}</h1>
+      <h1 class="text-primary">{project.data.title}</h1>
       <div class="flex items-center gap-6">
         <p class="flex items-center gap-2">
           <i class="inline-flex w-[30%] items-center"><img src="/icons/calendar.svg" alt="calendar icon" /></i>{
